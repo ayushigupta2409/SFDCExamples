@@ -1,0 +1,23 @@
+<template>
+        <div class="slds-var-m-around_medium">
+            <template if:true={loading}>
+                <div class="spinner">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+                </div>
+            </template>
+            <p class="slds-var-m-bottom_small">
+                <lightning-button
+                    label="Load Contacts"
+                    onclick={handleLoad}
+                ></lightning-button>
+            </p>
+            
+                <template if:true={contacts}>
+                    
+                    <template for:each={contacts} for:item="contact">
+                        <p key={contact.Id}>{contact.Name}</p>
+                    </template>
+                </template>
+            
+        </div>
+</template>
